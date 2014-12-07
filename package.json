@@ -4,7 +4,7 @@
   "description": "why, not just what",
   "main": "server.js",
   "scripts": {
-    "test": "test"
+    "postinstall": "./node_modules/bower/bin/bower install"
   },
   "repository": {
     "type": "git",
@@ -25,25 +25,23 @@
   },
   "homepage": "https://github.com/renderf0x/2014-10-greenfield",
   "dependencies": {
+    "bcrypt-nodejs": "latest",
     "body-parser": "^1.10.0",
+    "bower": "1.3.x",
     "chalk": "^0.5.1",
+    "connect-flash": "~0.1.1",
     "cookie-parser": "^1.3.3",
     "express": "^4.10.4",
+    "express-session": "~1.9.3",
     "mailgun-js": "0.6.7",
     "method-override": "~2.3.0",
     "mongoose": "^3.8.16",
     "morgan": "^1.5.0",
     "node-schedule": "^0.1.13",
+    "nunjucks": "^1.1.0",
     "passport": "^0.2.1",
-    "passport-local": "~1.0.0",
     "passport-facebook": "^1.0.3",
-    "express-session": "~1.9.3",
-    "connect-flash": "~0.1.1",     
-    "bcrypt-nodejs": "latest",
-    "path": "^0.4.9",
-    "bower": "1.3.x"
-  },
-  "scripts": {
-      "postinstall": "./node_modules/bower/bin/bower install"
+    "passport-local": "~1.0.0",
+    "path": "^0.4.9"
   }
 }
