@@ -20,8 +20,23 @@ angular.module('app.goalFact', [])
 	//stubs - fill out with real data later
 
 	var getGoals = function(user){
+		console.log("gettin yer goals");
+		return $http({
+			method: 'GET',
+			url: '/goals'
+		}).then(function(res){
+			return res.data;
+		});
 	};
-	var deleteGoal = function(goal){	
+
+	var deleteGoal = function(goalID){	
+		console.log("deleting goal: " + goalID);
+		return $http({
+			method: 'DELETE',
+			url: '/goals' + '/' + goalID
+		}).then(function(res){
+			return res.data;
+		});
 	};
 
 	return {

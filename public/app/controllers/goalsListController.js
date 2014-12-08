@@ -9,6 +9,7 @@ angular.module('app.goals', [])
 	$scope.data = {};
 	var goalsList = [
 		{
+		  _id: "7d7hebsd6f",
           goal: "Acheive inner peace",
           endDate: Date.parse("Sun Dec 07 2014 16:20:42 GMT-0800 (PST)"),
           startDate: Date.parse("Sun Dec 07 2014 16:20:42 GMT-0800 (PST)"),
@@ -16,6 +17,7 @@ angular.module('app.goals', [])
           freq: "daily"
         },
         {
+          _id: "7gydksgg4",
           goal: "Help inner city children",
           endDate: Date.parse("Sun Dec 07 2014 16:20:42 GMT-0800 (PST)"),
           startDate: Date.parse("Sun Dec 07 2014 16:20:42 GMT-0800 (PST)"),
@@ -23,6 +25,7 @@ angular.module('app.goals', [])
           freq: "weekly"
         },
         {
+          _id: "5f5dtgbe",
           goal: "Lose 30lbs",
           endDate: Date.parse("Sun Dec 07 2014 16:20:42 GMT-0800 (PST)"),
           startDate: Date.parse("Sun Dec 07 2014 16:20:42 GMT-0800 (PST)"),

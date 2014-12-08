@@ -5,6 +5,7 @@
 		<div class="item" ng-repeat="goal in data.goalsList">
 			<i class="big leaf icon"></i>
 			<div class="content">
+				<input type="hidden" class="hiddden goal-id" value="{{goal._id}}">
 				<a class="ui left aligned header">{{goal.goal}}</a>
 				<div class="ui horizontal list">
 					<div class="item"><i class="small calendar icon"></i> by {{goal.endDate | date: 'MM.dd.yyyy'}}</div>
