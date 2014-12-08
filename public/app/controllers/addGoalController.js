@@ -11,7 +11,7 @@ angular.module('app.add', [])
         goal: {
           goal: "",
           endDate: "",
-          why: "",
+          why: [],
           freq: {
             daily: false,
             weekly: false,
@@ -19,6 +19,14 @@ angular.module('app.add', [])
           }
         }
       };
+
+  //data model for the users current goal inspiration. pushes to $scope.data.goal.why array
+
+  $scope.data.currentWhy = "";
+
+  //skip button show/hide
+
+  $scope.showSkipButton = false;
 
   //this tracks whether a required field has been touched but not filled in
   $scope.conflict = false;
@@ -34,9 +42,44 @@ angular.module('app.add', [])
     }
   };
 
+  //Function that adds the current goal inspiration the user is adding to $scope.data.goal.why array
+
+  $scope.addReasonAndPrompt = function(){
+
+    $scope.data.goal.why.push($('.inspiration').val());
+    $('.inspiration').val('');
+
+    $scope.showSkipButton = true;
+    
+    if ($scope.data.goal.why.length < 3){
+      $scope.showNextPrompt();
+    } else {
+      $scope.createGoal();
+    }
+
+  }
+
+  $scope.showNextPrompt = function(){
+    var phrases = ["","Tell us more - can you be specific? (or skip below)","Let's get really deep - why do you want that to be the case?"];
+    var buttonText = ["","Let's go deeper", "OK, let's setup reminders!"];
+
+    var currentVal = $scope.data.goal.why.length;
+
+    $('#sendButton').text(buttonText[currentVal]);
+    $('.inspiration').attr('placeholder', phrases[currentVal]);
+
+    console.log($scope.data.goal.why);
+
+  }
+
   //Scope function to attach to the goalsService creation function
 
   $scope.createGoal = function(){
+
+    if ($('.inspiration').val() !== ""){
+      $scope.data.goal.why.push($('.inspiration'));
+    }
+
     var input = $scope.prepareData($scope.data.goal);
     console.log(input);
     goalsService.createGoal(input).then(function(res){
