@@ -36,7 +36,7 @@ db.User.find({name:"hello"}).exec(function(err, result) {
     console.log(result);
   } else {
     console.log("error");
-  };
+  }
 });
 
 // Code below will grab goals by user id once it is available on database.
@@ -118,11 +118,12 @@ app.post('/goals', function(req,res){
   var dueDate = goalData.endDate;
   var why = goalData.why;
   var freq;
-  for(key in goalData.freq){
+  for(var key in goalData.freq){
     if(goalData.freq[key]){
       freq = key;
     }
   }
+
 // will send an email to user on post request /goals  
   var testData = {
   name: "Rachel",
@@ -132,12 +133,12 @@ app.post('/goals', function(req,res){
 }
 var htmlPath = './public/emailTemplate.html'; 
 var htmlContent = fs.readFileSync(htmlPath,'utf8');
-var res = nunjucks.renderString(htmlContent, testData);
+var response = nunjucks.renderString(htmlContent, testData);
 var emailData = {
   from: 'Excited User <hazeeee@gmail.com>',
   to: 'hazeeee@gmail.com',
   subject: 'your goal!',
-  html: res
+  html: response
 };
 var date = new Date(2014, 11, 04, 22, 54, 0); // will send an email at this time this data used for testing purposes
 
@@ -153,7 +154,7 @@ var date = new Date(2014, 11, 04, 22, 54, 0); // will send an email at this time
 //       res.status(201).send("Goal Added successfully");
 //     });
 //   });
-// })
+})
 
 
 
@@ -196,12 +197,12 @@ mailgun.messages().send(data, function (error, body) {
 */
 
 
-//input from form is saved to these variables
-var goal;
-var inspiration;
-var emailAddress;
-var frequency;
-var user;
+// //input from form is saved to these variables
+// var goal;
+// var inspiration;
+// var emailAddress;
+// var frequency;
+// var user;
 //then input into this function:
 // var sendMessageSetInterval = function (goal, inspiration, emailAddress, frequency, user){
 //   var data = {
