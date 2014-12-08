@@ -23,8 +23,14 @@ userSchema.methods.validPassword = function(password) {
 var User = mongoose.model('User', userSchema);
 
 var goalsSchema = new Schema({
+  //TODO: putting the goals into userID
   userId: {type: Schema.Types.ObjectId, ref: 'User'},
+<<<<<<< HEAD
   goal: [{ 
+=======
+  email: String,
+  goals: [{ 
+>>>>>>> Saturday worked on merging goal schema with form input
     content: String,
     startDate: Date,
     endDate: Date,

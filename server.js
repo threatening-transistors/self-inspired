@@ -110,6 +110,7 @@ app.delete('/goals/:id', function(req, res) {
 });
 
 app.post('/goals', function(req,res){
+<<<<<<< HEAD
 	goals.push(req.body);
   //console.log('req.body: ', req.body);
   var goalData = req.body;
@@ -140,15 +141,32 @@ var emailData = {
   html: res
 };
 var date = new Date(2014, 11, 04, 22, 54, 0); // will send an email at this time this data used for testing purposes
+=======
+//   var goalToAdd = req.body;
+//   db.Goals.findOne({'userId': 1}, function(err, goals){
+//     if(!goals){
+      
+//     goals.push(goalToAdd);
+//     goals.save(function(err){
+//       if(err){
+//         res.send(err);
+//       }
+//       res.status(201).send("Goal Added successfully");
+//     });
+//   });
+// })
 
-var j = schedule.scheduleJob(date, function(){
-  mailgun.messages().send(emailData, function (error, body) {
-  console.log(body);
-});
-});
+
+
+
+// var j = schedule.scheduleJob(date, function(){
+//   mailgun.messages().send(emailData, function (error, body) {
+//   console.log(body);
+// });
+// });
 //// end of email to user on post request
 
-})
+// })
 
 
 app.set('port', process.env.PORT || 3000);
