@@ -39,7 +39,7 @@ angular.module('app.add', [])
   $scope.createGoal = function(){
     var input = $scope.prepareData($scope.data.goal);
     console.log(input);
-    goalsService.createGoal($scope.data.goal).then(function(res){
+    goalsService.createGoal(input).then(function(res){
       console.log(res);
       $scope.showCreateSuccess();
     });
