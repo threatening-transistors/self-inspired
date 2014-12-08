@@ -168,14 +168,14 @@ var emailData = {
 var date = new Date(2014, 11, 04, 22, 54, 0); // will send an email at this time this data used for testing purposes
 
 
-// var j = schedule.scheduleJob(date, function(){
-//   mailgun.messages().send(emailData, function (error, body) {
-//   console.log(body);
-// });
-// });
-//// end of email to user on post request
+var j = schedule.scheduleJob(date, function(){
+  mailgun.messages().send(emailData, function (error, body) {
+  console.log(body);
+});
+});
+// end of email to user on post request
 
-// })
+})
 
 
 app.set('port', process.env.PORT || 3000);
