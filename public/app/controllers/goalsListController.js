@@ -3,7 +3,7 @@
 *******************************************/
 
 angular.module('app.goals', [])
-.controller('goalsListController', function($scope){
+.controller('goalsListController', function($scope, goalsService){
 
 	//temporary testing array for populating goals list
 	$scope.data = {};
@@ -62,11 +62,12 @@ angular.module('app.goals', [])
 	}
 
 	//Activated when the user confirms deletion. Deletes the goal we're storing
-	//and closes the dimmer flash window
+	//and closes the dimmer flash window. Goal is found by going to the parent item of the clicked
+	//element, then finding it's hidden 'goal-id' input element and getting its value.
 
 	$scope.confirmedDelete = function(){
-		//do stuff here to actually delete the element at $scope.deletionPending
-		console.log("deleting " + $scope.deletionPending);
+		var idToDelete = $scope.deletionPending.closest('.item').find('.goal-id').val();
+		goalsService.deleteGoal(idToDelete);
 		$scope.closeConfirmDimmer();
 	}
 
